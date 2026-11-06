@@ -1,0 +1,143 @@
+<webobject name="Layout">
+<h2>Artistas</h2>
+
+<p><wo:WOHyperlink action = "$abrirForm">Novo Artista</wo:WOHyperlink></p>
+
+	
+	
+	
+	
+	
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Nascimento</th>
+			<th>País</th>
+			<th>Generos musicais</th>
+			<th>Gravadora</th>
+			<th>Ações</th>	
+		</tr>
+		
+		<wo:WORepetition list= "$artists" item ="$atualArtist">  
+			<tr>
+				<td><wo:WOString value="$atualArtist.name"></wo:WOString></td>
+				<td><wo:WOString value="$atualArtist.birthday" dateformat="%d-%m-%Y"></wo:WOString></td>
+				<td><wo:WOString value="$atualArtist.country"></wo:WOString></td>
+				<td>
+					<wo:WOString value="$atualArtist.mainGenre"></wo:WOString> 
+					<wo:WOString value="$atualArtist.secondaryGenre"></wo:WOString> 
+				</td>
+				<td><wo:WOString value="$atualArtist.recordLabel.name"></wo:WOString></td>
+				<td>
+					<wo:WOHyperlink action="$deletar" value="Deletar"></wo:WOHyperlink> 
+					<wo:WOHyperlink action="$editar" value="Editar"></wo:WOHyperlink>
+				</td>
+				
+			</tr>
+		</wo:WORepetition>
+		
+	</table>
+	
+	<wo:WOConditional condition = "$listaVazia">
+		<p style="justify-self : center">Nenhum artista cadastrado. </p>
+	</wo:WOConditional>
+	
+	
+	<wo:WOConditional condition="$mostrandoForm">
+	    <div class="fundo-modal">
+			
+		   <div class="modal">
+		   
+		   		<p style="justify-self: center;">
+		   			<div class="modal-titulo">ARTISTA</div>
+		   		</p>
+				<div class="modal-corpo">
+		
+		    	<wo:WOConditional condition="$temErro">
+		          <p class="mensagem"><wo:WOString value="$erro"></wo:WOString></p>
+		        </wo:WOConditional>
+		
+			
+				<wo:WOForm>
+			          <table>
+			            <tr>
+			              <th>Nome</th>
+			              <!-- Escreve DIRETO no objeto: ao submeter, a fase
+			                   takeValuesFromRequest preenche novaGravadora.name.
+			                   Nada vai para o banco ainda — só no saveChanges(). -->
+			                   
+			              <td><wo:WOTextField value="$novoArtist.name"></wo:WOTextField></td>
+					      <th>Nascimento</th>
+			              <td><wo:WOTextField value="$novoArtist.birthday" dateformat="%d-%m-%Y" placeholder="DD-MM-AAAA"></wo:WOTextField></td>
+			              <th>País</th>
+			              <td><wo:WOTextField value="$novoArtist.country"></wo:WOTextField></td>
+			              <th>Genero musical</th>
+			              <td>
+							<wo:WOPopUpButton 
+							    list="$genres" 
+							    item="$atualGenre"
+							    
+							    selection="$novoArtist.mainGenre"
+							    displayString="$atualGenre">
+							</wo:WOPopUpButton>
+							
+
+						
+				  	  		</td>
+				  	  		<td>
+					  	  		<wo:WOPopUpButton 
+								    list="$genres" 
+								    item="$atualGenre"
+								    selection="$novoArtist.secondaryGenre"
+								    displayString="$atualSecGenre">
+								</wo:WOPopUpButton>
+						  </td>
+			              <th>Gravadora</th>
+			              <td>
+							<wo:WOPopUpButton 
+						  	  		list="$gravadoras"
+						  	  		item="$gravadoraOption"
+						  	  		selection="$atualGravadora"
+						  	  		displayString="$gravadoraOption.name">
+							</wo:WOPopUpButton>
+			              </td>
+			              </tr>
+			              <tr>
+				              <wo:WOSubmitButton action="$salvar" value="Salvar"></wo:WOSubmitButton>
+					          <wo:WOSubmitButton action="$cancelar" value="Cancelar"></wo:WOSubmitButton>
+			              </tr>		
+			            
+			
+			            
+			
+			
+			          </table>
+			
+			
+			    </wo:WOForm>
+			
+			
+			
+	        </div>
+		   
+		   
+		   
+		   
+		   
+		   
+		   		
+	       </div>
+		
+		
+		
+		
+	    </div>
+
+  </wo:WOConditional>
+
+
+
+
+
+</webobject>
+

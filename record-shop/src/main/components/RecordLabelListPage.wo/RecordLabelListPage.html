@@ -1,0 +1,94 @@
+<webobject name="Layout">
+<h2>Gravadoras</h2>
+
+  <p><wo:WOHyperlink action="$abrirForm">Nova gravadora</wo:WOHyperlink></p>
+
+  <!-- ==================== A LISTAGEM ====================
+       list = a coleção inteira
+       item = a variável que recebe o elemento da vez
+
+       Note o aninhamento: a repetition ENVOLVE a <tr>. -->
+
+  <table>
+    <tr>
+      <th>Gravadora</th>
+      <th>País</th>
+      <th>Ações</th>
+    </tr>
+
+
+    <wo:WORepetition list="$gravadoras" item="$gravadoraAtual">
+      <tr>
+        <td>
+        	<wo:WOString value="$gravadoraAtual.name"></wo:WOString>
+        </td>
+        <td>
+        	<wo:WOString value="$gravadoraAtual.country"></wo:WOString>
+    	</td>
+        <td>
+	        <wo:WOHyperlink style = "color: red;" action="$deletar">Deletar Gravadora</wo:WOHyperlink>
+	        <wo:WOHyperlink action="$editar">Editar Gravadora</wo:WOHyperlink>
+        </td>
+        
+<!--  <td><wo:WOString value="$qtdArtistasDaAtual"></wo:WOString></td> -->
+      </tr>
+    </wo:WORepetition>
+  </table>
+
+  <wo:WOConditional condition="$listaVazia">
+    <p style="justify-self : center">Nenhuma gravadora cadastrada.</p>
+  </wo:WOConditional>
+
+  <!-- ====================== O MODAL ======================
+       Só é desenhado quando mostrandoForm é true. O visual de
+       janela sobreposta vem do CSS da moldura. -->
+
+  <wo:WOConditional condition="$mostrandoForm">
+
+    <div class="fundo-modal"></div>
+
+    <div class="modal">
+      
+      <p><div class="modal-titulo">GRAVADORA</div></p>
+
+      <div class="modal-corpo">
+
+    	<wo:WOConditional condition="$temErro">
+          <p class="mensagem"><wo:WOString value="$erro"></wo:WOString></p>
+        </wo:WOConditional>
+
+	
+	<wo:WOForm>
+          <table>
+            <tr>
+              <th>Nome</th>
+              <!-- Escreve DIRETO no objeto: ao submeter, a fase
+                   takeValuesFromRequest preenche novaGravadora.name.
+                   Nada vai para o banco ainda — só no saveChanges(). -->
+                   
+              <td><wo:WOTextField value="$novaGravadora.name"></wo:WOTextField></td>
+              <th>País</th>
+              <td><wo:WOTextField value="$novaGravadora.country"></wo:WOTextField></td>
+              </tr>
+              <tr>
+	              <wo:WOSubmitButton action="$salvar" value="Salvar"></wo:WOSubmitButton>
+		          <wo:WOSubmitButton action="$cancelar" value="Cancelar"></wo:WOSubmitButton>
+              </tr>		
+            
+
+            
+
+
+          </table>
+
+
+    </wo:WOForm>
+	
+	
+	
+        
+      </div>
+    </div>
+
+  </wo:WOConditional>
+</webobject>

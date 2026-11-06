@@ -1,0 +1,63 @@
+<webobject name="Layout">
+ 	
+ 	<h2>Álbuns</h2>
+ 	
+ 	<p><wo:WOHyperlink action="$abrirForm" >Novo Album</wo:WOHyperLink > </p>
+
+
+	<table>
+		<tr>
+			
+		<th>Album</th>
+		<th>Lançamento</th>
+		<th>Ações</th>
+		</tr>
+		<wo:WORepetition list = "$albums" item = "$atualAlbum">
+			<td>
+				<wo:WOString value = "$atualAlbum.name"></wo:WOString>
+			</td>
+			<td>
+				<wo:WOString value = "$atualAlbum.releaseDate"></wo:WOString>
+			</td>
+			<td>
+				<wo:WOHyperlink action = "$deletar">Deletar Album</wo:WOHyperlink>
+				<wo:WOHyperlink action = "$abrirForm">Editar Album</wo:WOHyperlink>
+			</td>
+
+		</wo:WORepetition>
+	</table>
+	
+	<wo:WOConditional condition="$listaVazia">
+		<p style="justify-self : center">Nenhum album cadastrado.</p>
+	</wo:WOConditional>
+
+  <wo:WOConditional condition="$mostrandoForm">
+  <div clas="fundo-modal">    </div>
+      <div class="modal-titulo">  Novo Album  </div>
+      
+  
+  <div class="modal">
+	  <div class="modal-corpo">
+		<wo:WOForm>
+	    	<table>
+	    		<tr>
+	    		    <th>Artista</th>
+	    		    <td><wo:WOTextField value="$novoAlbum.name"></wo:WOTextField></td>
+	    			<th>Album</th>
+	    			<td><wo:WOTextField value="$novoAlbum.name"></wo:WOTextField></td>
+	    			<th>Lançamento</th>
+	    			<td><wo:WOTextField value="$novoAlbum.releaseDate"></wo:WOTextField></td>
+	    		</tr>
+	    		<p>
+	    			<wo:WOSubmitButton action="$salvar"  value="Salvar"></wo:WOSubmitButton>
+	    			<wo:WOSubmitButton action="$cancelar" value="Cancelar"></wo:WOSubmitButton>
+	    		</p>
+	        </table>
+    	</wo:WOForm>
+	    
+	  </div> 
+    </div>
+  
+  </wo:WOConditional>
+    
+</webobject>

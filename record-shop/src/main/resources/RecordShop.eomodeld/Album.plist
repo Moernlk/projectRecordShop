@@ -1,0 +1,31 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = "artist_id"; 
+            externalType = int4; 
+            name = artistID; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = name; name = name; prototypeName = longText; }, 
+        {columnName = "release_date"; name = releaseDate; prototypeName = dateTime; }
+    ); 
+    attributesUsedForLocking = (artistID, id); 
+    className = "br.com.doit.recordshop.model.Album"; 
+    classProperties = (artist, name, releaseDate); 
+    externalName = album; 
+    fetchSpecificationDictionary = {}; 
+    name = Album; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Artist; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = artistID; }); 
+            name = artist; 
+        }
+    ); 
+}

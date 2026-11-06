@@ -1,0 +1,16 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {}; 
+    entities = (
+        {className = "br.com.doit.recordshop.model.Album"; name = Album; }, 
+        {className = "br.com.doit.recordshop.model.Artist"; name = Artist; }, 
+        {className = "br.com.doit.recordshop.model.RecordLabel"; name = RecordLabel; }
+    ); 
+    userInfo = {
+        "_EntityModeler" = {
+            attributeNamingConvention = {case = Lower; separator = Underscore; }; 
+            entityNamingConvention = {case = Lower; separator = Underscore; }; 
+        }; 
+    }; 
+}

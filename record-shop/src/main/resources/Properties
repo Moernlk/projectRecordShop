@@ -1,0 +1,26 @@
+#=======================================================================
+EOF
+#=======================================================================
+er.extensions.ERXEC.safeLocking=true
+er.extensions.ERXEC.useSharedEditingContext=false
+er.extensions.ERXEnterpriseObject.applyRestrictingQualifierOnInsert=true
+er.extensions.ERXEnterpriseObject.updateInverseRelationships=true
+dbConnectURLGLOBAL= jdbc:postgresql://localhost/recordshop
+dbConnectUserGLOBAL= postgres
+dbConnectPasswordGLOBAL=p3pp3R
+dbConnectPluginGLOBAL=PostgresqlPlugIn
+dbConnectDriverGLOBAL=org.postgresql.Driver
+dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes
+
+ognl.helperFunctions=true
+ognl.inlineBindings=true
+ognl.parseStandardTags=true
+#======================================================================
+
+Migrations
+#=======================================================================
+
+er.migration.migrateAtStartup=true
+er.migration.createTablesIfNecessary=true
+RecordShop.MigrationClassPrefix=br.com.doit.recordshop.migration.RecordShopModel
+#============================================================

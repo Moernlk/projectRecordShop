@@ -1,0 +1,109 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Record Shop</title>
+
+  <style>
+    /* ---- básico ---- */
+    body {
+      height:: 100dvh;
+      	
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #222;
+      margin: 0;
+    }
+    html{
+      height:: 100dvh;	
+      	
+    }
+
+    /* ---- cabeçalho ---- */
+    .topo {
+      background: #333;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* ---- menu lateral + conteúdo lado a lado ---- */
+    .corpo {
+      display: flex;
+      height: 100%;
+    }
+
+    .menu {
+      width: 170px;
+      padding: 16px;
+      background: #f2f2f2;
+      border-right: 1px solid #ccc;
+    }
+
+    .menu a {
+      display: block;
+      padding: 6px 0;
+      color: #0645ad;
+      text-decoration: none;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    .conteudo {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* ---- tabelas das listagens ---- */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #f2f2f2;
+    }
+
+    /* ---- avisos ---- */
+    .mensagem {
+      background: #fffbdd;
+      border: 1px solid #e0d48a;
+      padding: 8px 12px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topo">Record Shop</div>
+
+  <div class="corpo">
+
+    <!-- O menu existe UMA VEZ, aqui. Nenhuma página repete isso. -->
+    <div class="menu">
+      <wo:hyperlink action="$abrirGravadoras">Gravadoras</wo:hyperlink>
+      <wo:hyperlink action="$abrirArtistas">Artistas</wo:hyperlink>
+      <wo:hyperlink action="$abrirAlbuns">Álbuns</wo:hyperlink>
+    </div>
+
+    <div class="conteudo">
+
+      <!-- AQUI entra o conteúdo de cada página -->
+      <wo:WOComponentContent />
+
+    </div>
+
+  </div>
+
+</body>
+</html>

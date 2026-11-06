@@ -1,0 +1,14 @@
+{
+    attributes = (
+        {columnName = country; name = country; prototypeName = longText; }, 
+        {allowsNull = N; externalType = int4; name = id; prototypeName = id; }, 
+        {columnName = name; name = name; prototypeName = longText; }
+    ); 
+    attributesUsedForLocking = (id); 
+    className = "br.com.doit.recordshop.model.RecordLabel"; 
+    classProperties = (country, name); 
+    externalName = "record_label"; 
+    fetchSpecificationDictionary = {}; 
+    name = RecordLabel; 
+    primaryKeyAttributes = (id); 
+}

@@ -1,0 +1,52 @@
+{
+    attributes = (
+        {columnName = birthday; name = birthday; prototypeName = dateTime; }, 
+        {columnName = country; name = country; prototypeName = longText; }, 
+        {allowsNull = N; externalType = int4; name = id; prototypeName = id; }, 
+        {
+            allowsNull = N; 
+            columnName = "main_genre"; 
+            name = mainGenre; 
+            prototypeName = javaEnum; 
+            valueClassName = "br.com.doit.recordshop.model.Genre"; 
+        }, 
+        {columnName = name; name = name; prototypeName = longText; }, 
+        {
+            allowsNull = Y; 
+            columnName = "record_label_id"; 
+            externalType = int4; 
+            name = recordLabelID; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "secondary_genre"; 
+            name = secondaryGenre; 
+            prototypeName = javaEnum; 
+            valueClassName = "br.com.doit.recordshop.model.Genre"; 
+        }
+    ); 
+    attributesUsedForLocking = (id, recordLabelID); 
+    className = "br.com.doit.recordshop.model.Artist"; 
+    classProperties = (albums, birthday, country, mainGenre, name, recordLabel, secondaryGenre); 
+    externalName = artist; 
+    fetchSpecificationDictionary = {}; 
+    name = Artist; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Album; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = artistID; sourceAttribute = id; }); 
+            name = albums; 
+        }, 
+        {
+            destination = RecordLabel; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = recordLabelID; }); 
+            name = recordLabel; 
+        }
+    ); 
+}
