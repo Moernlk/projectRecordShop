@@ -4,3 +4,4 @@
 **/*.bat linguist-detectable=false
 *.cmd linguist-detectable=false
 **/*.cmd linguist-detectable=false
+**/mvnw linguist-detectable=false
