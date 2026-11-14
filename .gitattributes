@@ -1,7 +1,5 @@
-# Auto detect text files and perform LF normalization
 * text=auto
-*.bat linguist-detectable=false
-**/*.bat linguist-detectable=false
-*.cmd linguist-detectable=false
-**/*.cmd linguist-detectable=false
-**/mvnw linguist-detectable=false
+*.bat linguist-vendored
+*.cmd linguist-vendored
+record-shop/**/*.cmd linguist-vendored
+record-shop/**/*.bat linguist-vendored
