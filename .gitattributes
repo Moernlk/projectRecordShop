@@ -1,5 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.bat linguist-detectable=false
+**/*.bat linguist-detectable=false
 *.cmd linguist-detectable=false
 **/*.cmd linguist-detectable=false
