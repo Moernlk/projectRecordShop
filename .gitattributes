@@ -1,5 +1,4 @@
 * text=auto
 *.bat linguist-vendored
 *.cmd linguist-vendored
-record-shop/**/*.cmd linguist-vendored
-record-shop/**/*.bat linguist-vendored
+record-shop/target/** linguist-vendored
